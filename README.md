@@ -1,66 +1,219 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# condoctl.services
+condoctl.services web application is designed to meet the administrative needs of condominiums or subdivisions, offering a modern, simple and scalable platform. Inspired by the ease of use and the ability to scale functionalities, this tool aims to facilitate the management of users, properties, income, expenses and access in condominiums.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+# SPEC-1: condoctl.services
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Background
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The web application **condoctl.services** is designed to address the administrative needs of condominiums or residential complexes, offering a modern, simple, and scalable platform. Inspired by ease of use and the ability to scale functionalities, this tool aims to simplify the management of users, properties, income, expenses, and access in condominiums.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The application will be developed using **PHP** with the **Laravel** framework, employing **MySQL** as the database, and the "Creative Tim - Material Dashboard" user interface theme to provide a responsive, intuitive, and user-friendly experience. All code will adhere to the **MIT license** to ensure reuse.
 
-## Learning Laravel
+This platform will have a scalable design, allowing new modules or functionalities to be added in the future without affecting existing ones, and preparing for integration with mobile applications. The interface will focus on blue tones and will be bilingual (English and Spanish).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+The development prioritizes ease of use and includes key initial modules covering system configuration, users and roles, property management, income, expenses, account statements, and access.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Requirements
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The requirements for the development of **condoctl.services** are structured following the MoSCoW prioritization framework (Must Have, Should Have, Could Have, Won't Have for now):
 
-## Laravel Sponsors
+### Must Have
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- General configuration system:
+  - Modify `.env` file variables from the administration interface.
+- "Condominium Configuration" Module:
+  - Manage general condominium data (name, address, regulations, etc.).
+- Users and Roles Module:
+  - Register and manage users.
+  - Assign roles and specific permissions.
+- "Property Management" Module:
+  - Register properties linked to residents and contact details.
+  - Track occupancy status of each property (occupied, unoccupied, rented).
+- "Account Statements" Module:
+  - View balances and movements for each property.
+  - Generate basic financial reports.
+- "Income" Module:
+  - Record payments made by residents (maintenance fees, other concepts).
+- "Expenses" Module:
+  - Manage and record administrative and operational expenses for the condominium.
+- "Access" Module:
+  - Record visitor and supplier entries and exits by security personnel.
 
-### Premium Partners
+### Should Have
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- Multilingual:
+  - Interface available in English and Spanish.
+- Responsive design for mobile devices and tablets.
+- Basic notification system (emails) for important alerts.
 
-## Contributing
+### Could Have
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Future integration with mobile applications.
+- Advanced reporting system with PDF or Excel exports.
+- Integration with online payment systems.
 
-## Code of Conduct
+### Won't Have (for now)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Artificial intelligence for expense or income prediction.
+- Integration with IoT devices (e.g., automated access control).
 
-## Security Vulnerabilities
+## Method
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+To address the described requirements, an architecture based on modularity and scalability principles will be designed. The main components include database structure, business logic layers, user interfaces, and additional required services. The details are outlined below:
 
-## License
+### General Architecture
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The application will follow an MVC (Model-View-Controller) model using the **Laravel** framework:
+
+- **Model:** Represents database entities, such as users, properties, income, and expenses.
+- **View:** Uses the "Creative Tim - Material Dashboard" theme to ensure a modern and responsive interface.
+- **Controller:** Manages interactions between the user and the model, ensuring clear business logic.
+
+### Database Design
+
+The database will be structured with normalized tables to ensure efficiency. Some key tables include:
+
+- `users`: System user records (administrators, residents, security personnel).
+  - Columns: `id`, `name`, `email`, `password`, `role_id`, `created_at`, `updated_at`
+- `roles`: Role and permission management.
+  - Columns: `id`, `name`, `permissions`
+  - Predefined roles: `sysadmin`, `admin`, `resident`, `security`, `read_only`. These roles will not be editable through the user interface.
+  - Custom roles can be created by assigning permissions via checkboxes.
+- `properties`: Property information.
+  - Columns: `id`, `name`, `owner_id`, `tenant_name`, `tenant_contact`, `rental_contract_end`, `status`, `created_at`, `updated_at`
+- `transaction_types`: Configurable expense types.
+  - Columns: `id`, `name`, `description`, `created_at`, `updated_at`
+- `transactions`: Income and expense records.
+  - Columns: `id`, `property_id`, `type` (income/expense), `amount`, `transaction_type_id`, `description`, `date`, `created_at`, `updated_at`
+- `transaction_logs`: Transaction change logs.
+  - Columns: `id`, `transaction_id`, `original_data`, `change_type`, `changed_by`, `changed_at`
+- `access_logs`: Visitor and supplier access records.
+  - Columns: `id`, `visitor_name`, `property_id`, `date`, `time`, `created_at`, `updated_at`
+
+### Module Components
+
+1. **General Configuration:**
+   - Interface for modifying `.env` file variables.
+   - Validations to prevent errors when modifying critical settings.
+
+2. **Condominium Configuration:**
+   - Form to register and edit condominium data.
+   - Options to upload regulations and important documents.
+
+3. **Users and Roles:**
+   - CRUD (Create, Read, Update, Delete) for users.
+   - System to assign roles with specific permissions via checkboxes.
+   - Predefined, non-editable roles: `sysadmin`, `admin`, `resident`, `security`, `read_only`.
+
+4. **Property Management:**
+   - Register properties as complete records.
+   - Include owner details, contact information, occupancy status (occupied, unoccupied, rented).
+   - Manage tenant information (name, contact, rental contract duration).
+
+5. **Account Statements:**
+   - Detailed view of movements for each property.
+   - Options to generate basic PDF reports.
+
+6. **Income and Expenses:**
+   - Separate forms for recording payments and expenses.
+   - Lists with filters by date, property, and transaction type.
+   - Expense types managed in a separate module.
+   - Every transaction change logged in the `transaction_logs` table, storing original data, change type, the user who made the change, and the date.
+
+7. **Access:**
+   - Record entries and exits via a simple form.
+   - Historical lists with search options.
+
+### Component Diagram
+
+
+
+## Implementation
+
+To implement the **condoctl.services** system, the following stages are proposed:
+
+### Stage 1: Development Environment Setup
+
+1. Configure the development environment with **Laravel** and **MySQL**.
+2. Integrate the "Creative Tim - Material Dashboard" theme.
+3. Set up version control using **Git**.
+
+### Stage 2: Database Design
+
+1. Create the tables defined in the database design section.
+2. Configure relationships between tables (e.g., properties and users, transactions and transaction types).
+
+### Stage 3: Initial Module Implementation
+
+1. **General Configuration:**
+   - Create a form to modify `.env` file variables.
+   - Implement validations and basic tests.
+
+2. **Users and Roles:**
+   - Implement CRUD for users and roles.
+   - Set up predefined roles and functionality to assign permissions.
+
+3. **Property Management:**
+   - Create views and forms to manage properties.
+   - Include support for tenant data and occupancy status.
+
+### Stage 4: Transactions and Access Implementation
+
+1. **Income and Expenses:**
+   - Develop forms and views to record transactions.
+   - Implement expense type management in a separate module.
+   - Add functionality to log changes in the `transaction_logs` table.
+
+2. **Access:**
+   - Implement visitor entry and exit recording.
+   - Create historical lists with filtering options.
+
+### Stage 5: Testing and Adjustments
+
+1. Conduct functional tests for all modules.
+2. Fix bugs found during testing.
+3. Optimize database query performance.
+
+### Stage 6: Deployment
+
+1. Configure the production environment.
+2. Migrate the database to the production server.
+3. Publish the application on a domain accessible to users.
+
+### Stage 7: Support and Maintenance
+
+1. Implement an error-tracking system.
+2. Perform periodic updates to improve functionality and security.
+
+## Milestones
+
+### Milestone 1: Environment Setup
+- Prepare the development environment with Laravel and MySQL.
+- Set up version control (Git).
+
+### Milestone 2: Database
+- Create tables and relationships in MySQL.
+- Validate the integrity of entity relationships.
+
+### Milestone 3: Basic Modules
+- Implement the general configuration module.
+- Create the CRUD for users and roles.
+- Design and develop property management.
+
+### Milestone 4: Transactions and Access
+- Finalize income, expense, and access modules.
+- Add transaction log functionality.
+
+### Milestone 5: Testing and Optimization
+- Conduct comprehensive testing for all modules.
+- Optimize queries and overall performance.
+
+### Milestone 6: Deployment and Delivery
+- Configure the production environment.
+- Deploy the application and conduct final tests.
+
+### Milestone 7: Maintenance
+- Implement error-tracking systems.
+- Provide initial support and periodic updates.
+

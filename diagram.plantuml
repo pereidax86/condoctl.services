@@ -1,0 +1,19 @@
+@startuml
+package "Frontend" {
+[Material Dashboard UI]
+}
+package "Backend" {
+[Controllers] --> [Models]
+[Models] --> [Database]
+}
+package "Database" {
+[users]
+[roles]
+[properties]
+[transaction_types]
+[transactions]
+[transaction_logs]
+[access_logs]
+}
+[Frontend] --> [Controllers]
+@enduml
