@@ -25,7 +25,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $sysadmin->givePermissionTo(Permission::all());
 
         $admin = Role::create(['name' => 'admin']);
-        $admin->givePermissionTo(['manage_users', 'manage_properties']);
+        $admin->givePermissionTo(['manage_properties']);
 
         Role::create(['name' => 'resident'])
             ->givePermissionTo(['view_account']);
