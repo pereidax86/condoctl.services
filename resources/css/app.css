@@ -1,1 +1,172 @@
+/* Importar fuente Rubik desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
 
+/* Importar íconos de Material Design */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Aplicar la fuente globalmente */
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #f3f8fc; /* Fondo general: azul muy claro */
+    color: #2b3e50; /* Color de texto base: gris azulado */
+    line-height: 1.6;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #dff1f7 !important; /* Azul muy claro */
+    color: #2b3e50 !important; /* Gris azulado */
+}
+
+.sidebar a {
+    color: #3a6078 !important; /* Azul medio */
+}
+
+.sidebar a:hover {
+    color: #00509e !important; /* Azul intenso */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #e8f4f8 !important; /* Azul claro pastel */
+    color: #2b3e50 !important; /* Gris azulado */
+    box-shadow: 0 2px 5px rgba(43, 62, 80, 0.1); /* Sombra azulada */
+}
+
+.navbar a {
+    color: #2b3e50 !important;
+}
+
+.navbar a:hover {
+    color: #00509e !important;
+}
+
+/* Tarjetas */
+.card {
+    background-color: #ffffff !important; /* Fondo blanco limpio */
+    color: #2b3e50 !important; /* Texto gris azulado */
+    border: 1px solid #d9e4ea !important; /* Borde gris claro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 6px rgba(43, 62, 80, 0.1); /* Sombra azulada */
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #3a87ad !important; /* Azul suave */
+    border-color: #327c9a !important; /* Borde ligeramente más oscuro */
+    color: #ffffff !important; /* Texto blanco */
+    box-shadow: 0 4px 6px rgba(58, 135, 173, 0.3); /* Sombra azulada */
+    transition: all 0.3s ease; /* Animación suave */
+}
+
+.btn-primary:hover {
+    background-color: #286f88 !important; /* Azul más intenso */
+    border-color: #245e74 !important;
+    box-shadow: 0 4px 8px rgba(40, 111, 136, 0.4); /* Sombra más pronunciada */
+}
+
+/* Secundarios */
+.btn-secondary {
+    background-color: #e8f4f8 !important; /* Azul claro pastel */
+    border-color: #c6e0e8 !important; /* Borde más claro */
+    color: #2b3e50 !important; /* Gris azulado */
+    box-shadow: 0 2px 4px rgba(43, 62, 80, 0.2); /* Sombra ligera */
+}
+
+.btn-secondary:hover {
+    background-color: #d1edf5 !important; /* Azul claro */
+    border-color: #b0d7de !important;
+    box-shadow: 0 4px 6px rgba(43, 62, 80, 0.3); /* Sombra más pronunciada */
+}
+
+/* Colores de texto */
+.text-primary {
+    color: #3a87ad !important; /* Azul suave */
+}
+
+.text-secondary {
+    color: #6c757d !important; /* Gris neutro */
+}
+
+/* Colores de fondo */
+.bg-primary {
+    background-color: #3a87ad !important; /* Azul suave */
+}
+
+.bg-secondary {
+    background-color: #f3f8fc !important; /* Azul claro pastel */
+}
+
+/* Links */
+a {
+    color: #3a6078 !important;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00509e !important;
+    text-decoration: underline;
+}
+
+/* Tablas */
+.table {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #2b3e50; /* Texto gris azulado */
+    border: 1px solid #d9e4ea;
+}
+
+.table th {
+    background-color: #e8f4f8; /* Azul claro */
+    color: #2b3e50;
+    font-weight: 500;
+}
+
+.table td {
+    border-color: #d9e4ea;
+}
+
+/* Formularios */
+input,
+textarea,
+select {
+    background-color: #ffffff;
+    border: 1px solid #d9e4ea;
+    color: #2b3e50;
+    border-radius: 6px;
+    padding: 0.5rem;
+    box-shadow: inset 0 1px 3px rgba(43, 62, 80, 0.1); /* Sombra interior */
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #3a87ad;
+    box-shadow: 0 0 4px rgba(58, 135, 173, 0.5); /* Azul suave */
+}
+
+/* Barras de progreso */
+.progress-bar {
+    background-color: #3a87ad !important; /* Azul suave */
+    box-shadow: 0 2px 4px rgba(58, 135, 173, 0.3); /* Sombra azulada */
+}
+
+/* Footer */
+footer {
+    background-color: #dff1f7; /* Azul claro */
+    color: #2b3e50; /* Gris azulado */
+    text-align: center;
+    padding: 1rem 0; /* Espaciado interno */
+    font-size: 0.875rem; /* Tamaño del texto */
+    border-top: 1px solid #d9e4ea; /* Línea superior */
+    width: 100%; /* Asegurar que el footer ocupe todo el ancho */
+}
+
+footer a {
+    color: #3a87ad; /* Azul para enlaces */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

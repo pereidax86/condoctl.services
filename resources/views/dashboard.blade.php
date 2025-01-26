@@ -1,17 +1,14 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+@section('title', 'Dashboard')
 
-                <div class="card-body">
-                    Bienvenido, {{ Auth::user()->name }}.
-                    <br>
-                    Esta es la página principal después de iniciar sesión.
-                </div>
+@section('content')
+<div class="row">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Welcome, {{ Auth::user()->name }}</span>
+                <p>This is the main dashboard. Use the sidebar to navigate through the system.</p>
             </div>
         </div>
     </div>

@@ -5,8 +5,12 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/css/app.css',
+                'resources/css/layout.css',
+                'resources/sass/app.scss',
+                'node_modules/material-dashboard/assets/css/material-dashboard.css',
+                'node_modules/material-dashboard/assets/js/material-dashboard.js',
             ],
             refresh: true,
         }),

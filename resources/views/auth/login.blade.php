@@ -4,7 +4,7 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%;">
         <div class="card-header text-center bg-primary text-white">
-            <h4>Login</h4>
+            <h4>Iniciar Sesión</h4>
         </div>
         <div class="card-body">
             @if ($errors->any())

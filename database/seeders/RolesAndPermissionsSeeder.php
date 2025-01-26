@@ -10,28 +10,44 @@ class RolesAndPermissionsSeeder extends Seeder
 {
     public function run()
     {
-        // Create Permissions
+        // Define all permissions
         $permissions = [
-            'manage_users', 'manage_properties', 'view_account',
-            'manage_access', 'view_reports'
+            'view_dashboard',      // Acceder al dashboard
+            'manage_users',        // Administrar usuarios
+            'manage_properties',   // Administrar propiedades
+            'view_account',        // Ver cuenta del residente
+            'manage_access',       // Gestionar accesos
+            'view_reports',        // Ver reportes
+            'manage_config',       // Configurar el sistema
         ];
 
+        // Create Permissions
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);
+            Permission::firstOrCreate(['name' => $permission]);
         }
 
         // Create Roles and Assign Permissions
-        $sysadmin = Role::create(['name' => 'sysadmin']);
+
+        // Sysadmin: Acceso completo
+        $sysadmin = Role::firstOrCreate(['name' => 'sysadmin']);
         $sysadmin->givePermissionTo(Permission::all());
 
-        $admin = Role::create(['name' => 'admin']);
-        $admin->givePermissionTo(['manage_properties']);
+        // Admin: Todo menos configuración del sistema
+        $admin = Role::firstOrCreate(['name' => 'admin']);
+        $admin->givePermissionTo(
+            Permission::where('name', '!=', 'manage_config')->get()
+        );
 
-        Role::create(['name' => 'resident'])
-            ->givePermissionTo(['view_account']);
-        Role::create(['name' => 'security'])
-            ->givePermissionTo(['manage_access']);
-        Role::create(['name' => 'read_only'])
-            ->givePermissionTo(['view_reports']);
+        // Resident: Acceso limitado a su cuenta
+        $resident = Role::firstOrCreate(['name' => 'resident']);
+        $resident->givePermissionTo(['view_dashboard', 'view_account']);
+
+        // Security: Acceso para gestionar accesos
+        $security = Role::firstOrCreate(['name' => 'security']);
+        $security->givePermissionTo(['view_dashboard', 'manage_access']);
+
+        // Read-only: Solo puede ver reportes
+        $readOnly = Role::firstOrCreate(['name' => 'read_only']);
+        $readOnly->givePermissionTo(['view_dashboard', 'view_reports']);
     }
 }
