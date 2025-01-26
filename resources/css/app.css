@@ -41,6 +41,12 @@ body {
     color: #00509e !important;
 }
 
+.navbar-brand-img {
+    width: 100%; /* Ancho igual al tamaño de letra 24px */
+    height: 512px; /* Altura igual al tamaño de letra 24px */
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin distorsionarse */
+    border-radius: 5%; /* Opcional: añade un borde redondeado si lo deseas */
+}
 /* Tarjetas */
 .card {
     background-color: #ffffff !important; /* Fondo blanco limpio */
