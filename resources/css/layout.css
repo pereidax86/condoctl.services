@@ -1,20 +1,56 @@
-/* Flexbox para mantener el footer pegado al final */
-html, body {
-    height: 100%; /* Asegura que todo el diseño ocupe el 100% de la pantalla */
-    margin: 0; /* Elimina márgenes por defecto */
+/* Evitar scrollbars en el sidebar reducido */
+.sidebar-collapsed {
+    overflow: hidden !important;
 }
 
+/* Ajustes generales para el layout */
 body {
     display: flex;
-    flex-direction: column; /* Estructura en columnas: header, contenido, footer */
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Oculta scrollbars innecesarios */
 }
 
 .main-content {
-    flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
     display: flex;
     flex-direction: column;
+    flex: 1;
+    overflow-y: auto; /* Solo permite scroll vertical cuando sea necesario */
 }
+
+/* Ajustes para el contenido principal cuando el sidebar está reducido */
+@media (max-width: 1200px) {
+    .main-content {
+        margin-left: 80px; /* Asegura que el contenido no quede cubierto por el sidebar */
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-content {
+        margin-left: 300px; /* Ajusta este valor al ancho del sidebar cuando no está reducido */
+    }
+}
+
+/* Para permitir que el sidebar se contraiga y expanda */
+.sidebar-collapsed {
+    width: 80px !important;
+}
+
+.sidebar-collapsed .navbar-nav .nav-item .nav-link .nav-link-text {
+    display: none !important; /* Oculta el texto de los enlaces de navegación */
+}
+
+.sidebar-collapsed .sidenav-footer .nav-link-text {
+    display: none !important; /* Oculta el texto de los enlaces del footer */
+}
+
+
+
 
 .content-wrapper {
     flex: 1; /* Ajusta el espacio para el contenido dinámico */
+}
+
+footer {
+    flex-shrink: 0; /* Evita que el footer se reduzca */
 }
