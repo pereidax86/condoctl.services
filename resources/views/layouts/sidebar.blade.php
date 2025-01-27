@@ -1,8 +1,7 @@
-<aside class="sidenav sidebar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient" id="sidenav-main">
+<aside class="sidebar navbar-vertical navbar-expand-xs border-0" id="sidenav-main">
     <div class="sidenav-header">
-        <i class="fas fa-times p-3 cursor-pointer opacity-5 position-absolute end-0 top-0 d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0 d-flex align-items-center" href="{{ route('dashboard') }}">
-            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=308,fit=crop,q=95/AR02GzlpQOI56L5n/adamar-marevna-mnl6e21LkQUEPJw1.png" class="navbar-brand-img h-100" alt="main_logo">
+        <a class="navbar-brand d-flex align-items-center" href="{{ route('dashboard') }}">
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=308,fit=crop,q=95/AR02GzlpQOI56L5n/adamar-marevna-mnl6e21LkQUEPJw1.png" class="navbar-brand-img" alt="main_logo">
         </a>
     </div>
     <hr class="horizontal dark mt-0 mb-2">
@@ -14,7 +13,27 @@
                     <div class="{{ request()->routeIs('dashboard') ? 'text-white' : '' }} text-center me-2 d-flex align-items-center justify-content-center">
                         <span class="material-symbols-outlined">dashboard</span>
                     </div>
-                    <span class="nav-link-text ms-1 d-none d-xl-inline">Dashboard</span>
+                    <span class="{{ request()->routeIs('dashboard') ? 'text-white' : '' }} nav-link-text ms-1 d-none d-xl-inline">Inicio</span>
+                </a>
+            </li>
+            @endcan
+            @can('manage_users')
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('users.index') ? 'text-white active btn-primary' : '' }}" href="{{ route('users.index') }}">
+                    <div class="{{ request()->routeIs('users.index') ? 'text-white' : '' }} text-center me-2 d-flex align-items-center justify-content-center">
+                        <span class="material-symbols-outlined">group</span>
+                    </div>
+                    <span class="{{ request()->routeIs('users.index') ? 'text-white' : '' }} nav-link-text ms-1 d-none d-xl-inline">Usuarios y Roles</span>
+                </a>
+            </li>
+            @endcan
+            @can('manage_config')
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('audit-logs.index') ? 'text-white active btn-primary' : '' }}" href="{{ route('audit-logs.index') }}">
+                    <div class="{{ request()->routeIs('audit-logs.index') ? 'text-white' : '' }} text-center me-2 d-flex align-items-center justify-content-center">
+                        <span class="material-symbols-outlined">supervisor_account</span>
+                    </div>
+                    <span class="{{ request()->routeIs('audit-logs.index') ? 'text-white' : '' }} nav-link-text ms-1 d-none d-xl-inline">Auditoria Usuarios</span>
                 </a>
             </li>
             @endcan
@@ -24,7 +43,7 @@
                     <div class="{{ request()->routeIs('config.index') ? 'text-white' : '' }} text-center me-2 d-flex align-items-center justify-content-center">
                         <span class="material-symbols-outlined">tune</span>
                     </div>
-                    <span class="nav-link-text ms-1 d-none d-xl-inline">System Config</span>
+                    <span class="{{ request()->routeIs('config.index') ? 'text-white' : '' }} nav-link-text ms-1 d-none d-xl-inline">Configuracion Sistema</span>
                 </a>
             </li>
             @endcan

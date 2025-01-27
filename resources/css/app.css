@@ -14,8 +14,10 @@ body {
 
 /* Sidebar */
 .sidebar {
-    background-color: #dff1f7 !important; /* Azul muy claro */
+    background: linear-gradient(45deg, #dff1f7, #d9e4ea) !important; /* Gradiente diagonal de azul claro a gris claro */
     color: #2b3e50 !important; /* Gris azulado */
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1); /* Efecto 3D */
+    transition: all 0.3s ease; /* Suavizar transición */
 }
 
 .sidebar a {
@@ -41,19 +43,30 @@ body {
     color: #00509e !important;
 }
 
+/* Sidenav Header que contiene el logo */
+.sidenav-header {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    padding: 1rem;
+}
+
 .navbar-brand-img {
-    width: 100%; /* Ancho igual al tamaño de letra 24px */
-    height: 512px; /* Altura igual al tamaño de letra 24px */
-    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin distorsionarse */
+    width: 100%; /* Ancho del 100% del contenedor */
+    max-width: 85%; /* Ancho máximo del 85% del sidebar */
+    height: auto; /* Alto ajustado automáticamente */
+    object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin distorsionarse */
     border-radius: 5%; /* Opcional: añade un borde redondeado si lo deseas */
 }
+
 /* Tarjetas */
 .card {
     background-color: #ffffff !important; /* Fondo blanco limpio */
     color: #2b3e50 !important; /* Texto gris azulado */
     border: 1px solid #d9e4ea !important; /* Borde gris claro */
     border-radius: 8px; /* Esquinas redondeadas */
-    box-shadow: 0 4px 6px rgba(43, 62, 80, 0.1); /* Sombra azulada */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Efecto 3D */
+    transition: all 0.3s ease; /* Suavizar transición */
 }
 
 /* Botones */
@@ -61,14 +74,14 @@ body {
     background-color: #3a87ad !important; /* Azul suave */
     border-color: #327c9a !important; /* Borde ligeramente más oscuro */
     color: #ffffff !important; /* Texto blanco */
-    box-shadow: 0 4px 6px rgba(58, 135, 173, 0.3); /* Sombra azulada */
+    box-shadow: 0 6px 12px rgba(58, 135, 173, 0.3) !important; /* Sombra azulada */
     transition: all 0.3s ease; /* Animación suave */
 }
 
 .btn-primary:hover {
     background-color: #286f88 !important; /* Azul más intenso */
     border-color: #245e74 !important;
-    box-shadow: 0 4px 8px rgba(40, 111, 136, 0.4); /* Sombra más pronunciada */
+    box-shadow: 0 4px 8px rgba(40, 111, 136, 0.4) !important; /* Sombra más pronunciada */
 }
 
 /* Secundarios */
@@ -159,8 +172,8 @@ select:focus {
 
 /* Footer */
 footer {
-    background-color: #dff1f7; /* Azul claro */
-    color: #2b3e50; /* Gris azulado */
+    background-color: transparent !important; /* Fondo transparente */
+    color: #2b3e50 !important; /* Color de texto consistente */
     text-align: center;
     padding: 1rem 0; /* Espaciado interno */
     font-size: 0.875rem; /* Tamaño del texto */
