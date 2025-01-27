@@ -8,14 +8,14 @@
 
     <!-- Mensaje de Éxito -->
     @if(session('success'))
-        <div class="card-panel green white-text">
+        <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
     <!-- Mensajes de Error -->
     @if ($errors->any())
-        <div class="card-panel red white-text">
+        <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -26,30 +26,40 @@
 
     <!-- Formulario de Configuración -->
     <div class="card">
-        <div class="card-content">
-            <span class="card-title">Edit Configuration</span>
-
+        <div class="card-header card-header-primary">
+            <h4 class="card-title">Edit Configuration</h4>
+            <p class="card-category">Update your system settings below</p>
+        </div>
+        <div class="card-body">
             <form method="POST" action="{{ route('config.update') }}">
                 @csrf
 
-                <!-- Inputs Generados Dinámicamente -->
-                @foreach ($env as $key => $value)
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input type="text" id="{{ $key }}" name="{{ $key }}" value="{{ $value }}" class="validate">
-                            <label for="{{ $key }}">{{ $key }}</label>
-                        </div>
-                    </div>
-                @endforeach
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="text-primary">
+                            <tr>
+                                <th>Key</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Inputs Generados Dinámicamente -->
+                            @foreach ($env as $key => $value)
+                                <tr>
+                                    <td><label for="{{ $key }}">{{ $key }}</label></td>
+                                    <td>
+                                        <input type="text" class="form-control" id="{{ $key }}" name="{{ $key }}" value="{{ $value }}">
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
 
                 <!-- Botón de Guardar -->
-                <div class="row">
-                    <div class="col s12">
-                        <button type="submit" class="btn blue">
-                            <i class="material-icons left">save</i> Save Changes
-                        </button>
-                    </div>
-                </div>
+                <button type="submit" class="btn btn-primary mt-4">
+                    <i class="material-symbols-outlined">save</i> Save Changes
+                </button>
             </form>
         </div>
     </div>
