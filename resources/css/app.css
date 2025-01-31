@@ -1,191 +1,81 @@
-/* Importar fuente Rubik desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
-
-/* Importar íconos de Material Design */
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
-/* Aplicar la fuente globalmente */
-body {
-    font-family: 'Rubik', sans-serif;
-    background-color: #f3f8fc; /* Fondo general: azul muy claro */
-    color: #2b3e50; /* Color de texto base: gris azulado */
-    line-height: 1.6;
+/* Estilo para el Sidebar */
+.pf-v6-c-sidebar {
+    width: 250px; /* Ancho del sidebar cuando está expandido */
+    height: 100vh; /* Altura completa de la ventana */
+    background-color: #f0f0f0; /* Color de fondo gris */
+    color: #333; /* Color del texto */
+    transition: width 0.3s; /* Transición suave para el ancho */
 }
 
-/* Sidebar */
-.sidebar {
-    background: linear-gradient(45deg, #dff1f7, #d9e4ea) !important; /* Gradiente diagonal de azul claro a gris claro */
-    color: #2b3e50 !important; /* Gris azulado */
-    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1); /* Efecto 3D */
-    transition: all 0.3s ease; /* Suavizar transición */
+.pf-v6-c-sidebar.collapsed {
+    width: 80px; /* Ancho del sidebar cuando está colapsado, mostrando solo iconos */
 }
 
-.sidebar a {
-    color: #3a6078 !important; /* Azul medio */
+.pf-v6-c-nav__link-text,
+.section-title-text {
+    display: inline; /* Mostrar el texto de los enlaces */
+    transition: opacity 0.3s; /* Transición suave para el texto */
 }
 
-.sidebar a:hover {
-    color: #00509e !important; /* Azul intenso */
+.pf-v6-c-sidebar.collapsed .pf-v6-c-nav__link-text  {
+    display: none; /* Ocultar el texto de los enlaces cuando el sidebar está colapsado */
 }
 
-/* Navbar */
-.navbar {
-    background-color: #e8f4f8 !important; /* Azul claro pastel */
-    color: #2b3e50 !important; /* Gris azulado */
-    box-shadow: 0 2px 5px rgba(43, 62, 80, 0.1); /* Sombra azulada */
+/* Estilos adicionales para ajustar la vista y el diseño */
+.pf-v6-c-nav__list {
+    padding-left: 0; /* Eliminar el padding izquierdo de la lista */
 }
 
-.navbar a {
-    color: #2b3e50 !important;
+.pf-v6-c-nav__item {
+    list-style: none; /* Eliminar el estilo de lista */
 }
 
-.navbar a:hover {
-    color: #00509e !important;
+.pf-v6-c-button.pf-m-plain {
+    margin-left: auto; /* Alinear el botón de colapsar a la derecha */
 }
 
-/* Sidenav Header que contiene el logo */
-.sidenav-header {
-    display: flex;
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    padding: 1rem;
+.pf-v6-c-sidebar__panel {
+    margin-left: 0; /* Eliminar margen izquierdo */
 }
 
-.navbar-brand-img {
-    width: 100%; /* Ancho del 100% del contenedor */
-    max-width: 85%; /* Ancho máximo del 85% del sidebar */
-    height: auto; /* Alto ajustado automáticamente */
-    object-fit: contain; /* Asegura que la imagen se ajuste al contenedor sin distorsionarse */
-    border-radius: 5%; /* Opcional: añade un borde redondeado si lo deseas */
+/* Estilo para los iconos */
+.pf-v6-c-nav__link-icon {
+    color: #333; /* Color del icono */
 }
 
-/* Tarjetas */
-.card {
-    background-color: #ffffff !important; /* Fondo blanco limpio */
-    color: #2b3e50 !important; /* Texto gris azulado */
-    border: 1px solid #d9e4ea !important; /* Borde gris claro */
-    border-radius: 8px; /* Esquinas redondeadas */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Efecto 3D */
-    transition: all 0.3s ease; /* Suavizar transición */
+/* Estilo para los links */
+.pf-v6-c-nav__link {
+    color: #333; /* Color del texto del link */
 }
 
-/* Botones */
-.btn-primary {
-    background-color: #3a87ad !important; /* Azul suave */
-    border-color: #327c9a !important; /* Borde ligeramente más oscuro */
-    color: #ffffff !important; /* Texto blanco */
-    box-shadow: 0 6px 12px rgba(58, 135, 173, 0.3) !important; /* Sombra azulada */
-    transition: all 0.3s ease; /* Animación suave */
+.menu-icon {
+    vertical-align: middle;
+    margin-right: 8px;
 }
 
-.btn-primary:hover {
-    background-color: #286f88 !important; /* Azul más intenso */
-    border-color: #245e74 !important;
-    box-shadow: 0 4px 8px rgba(40, 111, 136, 0.4) !important; /* Sombra más pronunciada */
+.draggable-card {
+    cursor: move; /* Cambia el cursor cuando se pasa sobre la tarjeta para indicar que es arrastrable */
 }
 
-/* Secundarios */
-.btn-secondary {
-    background-color: #e8f4f8 !important; /* Azul claro pastel */
-    border-color: #c6e0e8 !important; /* Borde más claro */
-    color: #2b3e50 !important; /* Gris azulado */
-    box-shadow: 0 2px 4px rgba(43, 62, 80, 0.2); /* Sombra ligera */
+/* Resaltar las tarjetas mientras se arrastran */
+.pf-v6-l-grid__item.dragging {
+    border: 2px dashed #007bba;
+    background-color: #e7f3fc;
 }
 
-.btn-secondary:hover {
-    background-color: #d1edf5 !important; /* Azul claro */
-    border-color: #b0d7de !important;
-    box-shadow: 0 4px 6px rgba(43, 62, 80, 0.3); /* Sombra más pronunciada */
-}
-
-/* Colores de texto */
-.text-primary {
-    color: #3a87ad !important; /* Azul suave */
-}
-
-.text-secondary {
-    color: #6c757d !important; /* Gris neutro */
-}
-
-/* Colores de fondo */
-.bg-primary {
-    background-color: #3a87ad !important; /* Azul suave */
-}
-
-.bg-secondary {
-    background-color: #f3f8fc !important; /* Azul claro pastel */
-}
-
-/* Links */
-a {
-    color: #3a6078 !important;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #00509e !important;
-    text-decoration: underline;
-}
-
-/* Tablas */
-.table {
-    background-color: #ffffff; /* Fondo blanco */
-    color: #2b3e50; /* Texto gris azulado */
-    border: 1px solid #d9e4ea;
-}
-
-.table th {
-    background-color: #e8f4f8; /* Azul claro */
-    color: #2b3e50;
-    font-weight: 500;
-}
-
-.table td {
-    border-color: #d9e4ea;
-}
-
-/* Formularios */
-input,
-textarea,
-select {
-    background-color: #ffffff;
-    border: 1px solid #d9e4ea;
-    color: #2b3e50;
-    border-radius: 6px;
-    padding: 0.5rem;
-    box-shadow: inset 0 1px 3px rgba(43, 62, 80, 0.1); /* Sombra interior */
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: #3a87ad;
-    box-shadow: 0 0 4px rgba(58, 135, 173, 0.5); /* Azul suave */
-}
-
-/* Barras de progreso */
-.progress-bar {
-    background-color: #3a87ad !important; /* Azul suave */
-    box-shadow: 0 2px 4px rgba(58, 135, 173, 0.3); /* Sombra azulada */
-}
-
-/* Footer */
-footer {
-    background-color: transparent !important; /* Fondo transparente */
-    color: #2b3e50 !important; /* Color de texto consistente */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
     text-align: center;
-    padding: 1rem 0; /* Espaciado interno */
-    font-size: 0.875rem; /* Tamaño del texto */
-    border-top: 1px solid #d9e4ea; /* Línea superior */
-    width: 100%; /* Asegurar que el footer ocupe todo el ancho */
+    padding: 10px 0;
+    background-color: #f0f0f0; /* Ajusta el color de fondo según tus necesidades */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-footer a {
-    color: #3a87ad; /* Azul para enlaces */
-    text-decoration: none;
+.footer .pf-c-link {
+    color: #007bba; /* Color del enlace */
 }
 
-footer a:hover {
-    text-decoration: underline;
-}
+

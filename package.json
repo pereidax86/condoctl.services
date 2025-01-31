@@ -17,8 +17,8 @@
         "vite": "^6.0"
     },
     "dependencies": {
+        "@patternfly/patternfly": "^6.1.0",
         "@popperjs/core": "^2.11.8",
-        "jquery": "^3.7.1",
-        "material-dashboard": "^3.0.9"
+        "jquery": "^3.7.1"
     }
 }

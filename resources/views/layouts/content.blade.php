@@ -4,15 +4,27 @@
 @section('section-title', 'Dashboard')
 
 @section('content')
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="pf-l-grid pf-m-gutter">
     <!-- Ejemplo de Cards -->
-    <div class="card bg-white shadow-md rounded-lg p-4">
-        <h2 class="text-lg font-bold">Card 1</h2>
-        <p>Información importante aquí.</p>
+    <div class="pf-l-grid__item pf-m-12-col pf-m-6-col-on-md pf-m-4-col-on-lg">
+        <div class="pf-c-card">
+            <div class="pf-c-card__header">
+                <h2 class="pf-c-title pf-m-lg">Card 1</h2>
+            </div>
+            <div class="pf-c-card__body">
+                <p>Información importante aquí.</p>
+            </div>
+        </div>
     </div>
-    <div class="card bg-white shadow-md rounded-lg p-4">
-        <h2 class="text-lg font-bold">Card 2</h2>
-        <p>Más información aquí.</p>
+    <div class="pf-l-grid__item pf-m-12-col pf-m-6-col-on-md pf-m-4-col-on-lg">
+        <div class="pf-c-card">
+            <div class="pf-c-card__header">
+                <h2 class="pf-c-title pf-m-lg">Card 2</h2>
+            </div>
+            <div class="pf-c-card__body">
+                <p>Más información aquí.</p>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

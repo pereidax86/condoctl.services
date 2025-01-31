@@ -2,42 +2,37 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import '@popperjs/core';
+import '@patternfly/patternfly/patternfly.css';
+import 'https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js';
+
 window.$ = $;
 window.jQuery = $;
 
-document.getElementById('toggleSidebar').addEventListener('click', function() {
-    const sidebar = document.getElementById('sidenav-main');
-    const toggleIcon = document.getElementById('toggleIcon');
-    const mainContent = document.querySelector('.main-content');
-
-    sidebar.classList.toggle('sidebar-collapsed');
-    mainContent.classList.toggle('content-expanded');
-
-    if (sidebar.classList.contains('sidebar-collapsed')) {
-        toggleIcon.textContent = 'arrow_menu_open';
-    } else {
-        toggleIcon.textContent = 'arrow_menu_close';
-    }
+// Manejo del comportamiento del menu de alertas
+document.getElementById('notification-dropdown-button').addEventListener('click', function() {
+    var dropdownMenu = document.getElementById('notification-menu');
+    var isHidden = dropdownMenu.style.display === 'none';
+    dropdownMenu.style.display = isHidden ? 'block' : 'none';
 });
 
-function adjustSidebar() {
-    const sidebar = document.getElementById('sidenav-main');
-    const toggleIcon = document.getElementById('toggleIcon');
-    const mainContent = document.querySelector('.main-content');
+document.getElementById('user-dropdown-button').addEventListener('click', function() {
+    var userMenu = document.getElementById('user-menu');
+    var isHidden = userMenu.style.display === 'none';
+    userMenu.style.display = isHidden ? 'block' : 'none';
+});
 
-    if (window.innerWidth <= 1200) {
-        sidebar.classList.add('sidebar-collapsed');
-        mainContent.classList.add('content-expanded');
-        toggleIcon.textContent = 'arrow_menu_open';
-    } else {
-        sidebar.classList.remove('sidebar-collapsed');
-        mainContent.classList.remove('content-expanded');
-        toggleIcon.textContent = 'arrow_menu_close';
-    }
-}
 
-// Ajusta el sidebar y el contenido cuando la ventana cambia de tamaño
-window.addEventListener('resize', adjustSidebar);
+// Drag and drop de las cards
+document.addEventListener('DOMContentLoaded', function() {
+    var dashboard = document.getElementById('dashboard');
+    var sortable = Sortable.create(dashboard, {
+        animation: 150,
+        ghostClass: 'dragging' // Clase añadida al elemento mientras se arrastra
+    });
+});
 
-// Ajusta el sidebar y el contenido cuando la página se carga
-document.addEventListener('DOMContentLoaded', adjustSidebar);
+// Comportamiento del menu lateral
+document.getElementById('toggleSidebarButton').addEventListener('click', function() {
+    var sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('collapsed');
+});

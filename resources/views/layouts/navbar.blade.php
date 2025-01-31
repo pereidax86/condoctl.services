@@ -1,44 +1,71 @@
-<nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky" id="navbarBlur" data-scroll="true">
-    <div class="container-fluid py-1 px-3 d-flex justify-content-between align-items-center">
-        <div>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0">
-                    <li class="breadcrumb-item text-sm">
-                        <a class="opacity-3 text-dark" href="javascript:;">
-                            <span class="material-symbols-outlined">dashboard</span>
-                        </a>
-                    </li>
-                    <!-- Título de la Sección -- A la Izquierda -->
-                    <li class="breadcrumb-item text-lg font-bold">@yield('section-title', 'condoctl.services')</li>
-                </ol>
-            </nav>
+<header class="pf-v6-c-masthead" id="basic-masthead">
+    <div class="pf-v6-c-masthead__main">
+        <span class="pf-v6-c-masthead__toggle">
+            <button class="pf-v6-c-button pf-m-plain" id="toggleSidebarButton" type="button" aria-label="Global navigation">
+                <span class="pf-v6-c-button__icon">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </span>
+            </button>
+        </span>
+        <div class="pf-v6-c-masthead__brand">
+            <a class="pf-v6-c-masthead__logo" href="#">
+                <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=308,fit=crop,q=95/AR02GzlpQOI56L5n/adamar-marevna-mnl6e21LkQUEPJw1.png"
+                    class="pf-v6-c-masthead__brand-logo" alt="main_logo">
+            </a>
         </div>
-
+    </div>
+    <div class="pf-v6-c-masthead__content" style="display: flex; justify-content: flex-end; width: 100%;">
         @if (Auth::check())
-        <!-- User Zone -- Right side -->
-        <div class="d-flex align-items-center">
-            <!-- notifications -->
-            <div class="dropdown me-3">
-                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
-                    <i class="material-symbols-outlined">notifications</i>
-                </a>
+            <div class="pf-v6-c-dropdown pf-m-plain" style="position: relative; margin-left: auto;">
+                <button class="pf-v6-c-button pf-m-plain" type="button" id="notification-dropdown-button" aria-expanded="false">
+                    <span class="pf-v6-c-notification-badge" aria-label="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="pf-v6-c-notification-badge__count">3</span>
+                    </span>
+                </button>
+                <div class="pf-v6-c-menu" id="notification-menu" style="position: absolute; top: 100%; right: 0; display: none;">
+                    <div class="pf-v6-c-menu__content">
+                        <ul class="pf-v6-c-menu__list" role="menu">
+                            <li class="pf-v6-c-menu__list-item" role="none">
+                                <a class="pf-v6-c-menu__item" href="#" role="menuitem">
+                                    <span class="pf-v6-c-menu__item-main">
+                                        <span class="pf-v6-c-menu__item-text">Example of notification</span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-            <!-- user menu -->
-            <div class="dropdown">
-                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
-                    <i class="material-symbols-outlined">account_circle</i><span>{{ Auth::user()->name }}</span></a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                    <li><a class="dropdown-item" href="#"><i class="material-symbols-outlined">Manage_Accounts</i> Mi cuenta</a></li>
-                    <li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button class="dropdown-item" type="submit"><i class="material-symbols-outlined">logout</i>Salir</button>
-                        </form>
-                    </li>
-                </ul>
+            <div class="pf-v6-c-dropdown pf-m-plain" style="position: relative; margin-left: 10px;">
+                <button class="pf-v6-c-button pf-m-plain" type="button" id="user-dropdown-button" aria-expanded="false">
+                    <span class="pf-v6-c-notification-badge" aria-label="User">
+                        <img class="pf-v6-c-avatar pf-m-bordered" alt="Avatar image" src="/assets/images/img_avatar-light.svg" />
+                        <span class="pf-v6-c-notification-badge__count">{{ Auth::user()->name }}</span>
+                    </span>
+                </button>
+                <div class="pf-v6-c-menu" id="user-menu" style="position: absolute; top: 100%; right: 0; display: none;">
+                    <div class="pf-v6-c-menu__content">
+                        <ul class="pf-v6-c-menu__list" role="menu">
+                            <li class="pf-v6-c-menu__list-item" role="none">
+                                <a class="pf-v6-c-menu__item" href="#" role="menuitem">
+                                    <span class="pf-v6-c-menu__item-main">
+                                        <span class="pf-v6-c-menu__item-text">Mi cuenta</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="pf-v6-c-menu__list-item" role="none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button class="pf-v6-c-menu__item" type="submit" role="menuitem">
+                                        Salir
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
         @endif
     </div>
-</nav>
+</header>
